@@ -40,7 +40,7 @@ class FastAPIService(win32serviceutil.ServiceFramework):
 
     def run_uvicorn(self):
         # Run the FastAPI app using uvicorn
-        uvicorn.run(app, host="0.0.0.0", port=14000)
+        uvicorn.run("service_pywin32:app", host="127.0.0.1", port=14000)
 
 # Run the service
 if __name__ == '__main__':
