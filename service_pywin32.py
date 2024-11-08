@@ -7,6 +7,7 @@ import servicemanager
 import socket
 import threading
 
+
 # Define the FastAPI app
 app = FastAPI()
 
@@ -44,4 +45,7 @@ class FastAPIService(win32serviceutil.ServiceFramework):
 
 # Run the service
 if __name__ == '__main__':
-    win32serviceutil.HandleCommandLine(FastAPIService)
+    try:
+        win32serviceutil.HandleCommandLine(FastAPIService)
+    except Exception as e:
+        print("Exception e " + str(e))
